@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_55nmg")
 
 [node name="DebugHud" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -56,6 +57,7 @@ text = "Fps"
 title = "Debug window"
 initial_position = 1
 size = Vector2i(200, 150)
+visible = false
 wrap_controls = true
 popup_window = true
 sharp_corners = true
@@ -76,6 +78,7 @@ text = "Level picker"
 [node name="OptionButton" type="OptionButton" parent="Window/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+allow_reselect = true
 item_count = 1
 popup/item_0/text = "level select"
 popup/item_0/id = 0
