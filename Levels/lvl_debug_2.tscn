@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b88g872whluud"]
+
+[ext_resource type="Texture2D" uid="uid://df2p3fk7u8j56" path="res://godot.svg" id="1_k6k3b"]
+
+[node name="lvl_debug_2" type="Node2D"]
+
+[node name="Godot" type="Sprite2D" parent="."]
+position = Vector2(453, 279)
+texture = ExtResource("1_k6k3b")

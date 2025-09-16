@@ -11,11 +11,11 @@ func unload_level():
 		level_instance.queue_free()
 	level_instance = null
 
-
+ 
 func load_level(level_name : String):
 	unload_level()
-	var level_path := "res://Levels/%s.tscn" % level_name
+	var level_path := "res://Levels/%s" % level_name
 	var level_resource := load(level_path)
 	if (level_resource):
-		level_instance = level_resource.instance()
+		level_instance = level_resource.instantiate()
 		World.add_child(level_instance)
