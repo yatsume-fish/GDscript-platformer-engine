@@ -13,9 +13,5 @@ position = Vector2(526, 159)
 texture = ExtResource("1_mbu1f")
 
 [node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(461, 515)
-texture = ExtResource("1_mbu1f")
-
-[node name="Icon4" type="Sprite2D" parent="."]
 position = Vector2(821, 340)
 texture = ExtResource("1_mbu1f")

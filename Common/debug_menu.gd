@@ -2,6 +2,11 @@ extends Control
 
 @onready var debug_window = $Window
 @onready var levels_button = $Window/VBoxContainer/OptionButton
+@onready var debug_hud = $DebugHud
+
+@onready var debug_hud_fps = $DebugHud/FpsContainer/FpsVar
+@onready var debug_hud_level = $DebugHud/LevelContainer/LevelVar
+@onready var debug_hud_audio = $DebugHud/AudioContainer/AudioVar
 
 var debug_show : bool
 var level_selected
@@ -14,7 +19,7 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	add_to_list()
 
-func _input(event):
+func _input(event): #input handling
 	if event.is_action_pressed("Button_debug"):
 		if debug_show == true:
 			debug_show = false
@@ -23,22 +28,40 @@ func _input(event):
 			debug_show = true
 			print("Debug menu ON")
 
+
+
 func _on_window_close_requested() -> void:
 	debug_show = false
 	print("debug menu OFF")
 
-func debug_handler():
-		if debug_show:
-			debug_window.show()
-		else:
-			debug_window.hide()
 
-func list_levels():
+
+func debug_handler(): 
+	##fps display
+	var fps = Engine.get_frames_per_second()
+	debug_hud_fps.text = str(fps)
+	
+	debug_hud_level.text = str(level_selected)
+	
+	##handles showing and hiding debug ui
+	if debug_show:
+		debug_hud.show()
+		debug_window.show()
+	else:
+		debug_hud.hide()
+		debug_window.hide()
+
+
+
+
+#returns the number of levels in the levels directory and lists them
+func list_levels(): 
 	levels_list = ResourceLoader.list_directory("res://Levels/")
 	levels_number = levels_list.size()
 	print("there are %s levels" % levels_number)
 	print(levels_list)
 
+#adds the list of numbers to the levels picker in the debug window
 func add_to_list():
 	list_levels()
 	for n in levels_number:
