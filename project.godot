@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Platformer"
+run/main_scene="uid://dtah8gn2k0dnk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://godot.svg"
+
+[autoload]
+
+Global="*res://Common/Global.gd"
 
 [editor]
 
