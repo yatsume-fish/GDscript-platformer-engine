@@ -1,4 +1,4 @@
-#DEMO PLATFORMER
+# DEMO PLATFORMER
 
-##ABOUT
+## ABOUT
 This is a demo platformer engine written in GDscript
