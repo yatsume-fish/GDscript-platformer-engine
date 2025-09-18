@@ -15,7 +15,7 @@ var level_selected
 var levels_list
 var levels_number
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	debug_handler()
 
 func _ready() -> void:
@@ -44,11 +44,12 @@ func _on_window_close_requested() -> void:
 func debug_handler(): 
 	##fps display
 	var fps = Engine.get_frames_per_second()
+	
 	debug_hud_fps.text = str(fps)
-	
 	debug_hud_level.text = str(level_selected)
+	debug_hud_audio.text = str(Global.main_scene.music_player.get_stream())
 	
-	##handles showing and hiding debug ui
+	####### handles showing and hiding debug ui
 	if debug_hud_show:
 		debug_hud.show()
 	else:

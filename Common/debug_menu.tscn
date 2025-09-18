@@ -64,6 +64,7 @@ keep_pressed_outside = true
 text = "Open debug window"
 
 [node name="Window" type="Window" parent="."]
+oversampling_override = 1.0
 title = "Debug window"
 initial_position = 1
 size = Vector2i(200, 150)

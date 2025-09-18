@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtah8gn2k0dnk"]
+[gd_scene load_steps=4 format=3 uid="uid://dtah8gn2k0dnk"]
 
 [ext_resource type="Script" uid="uid://m47oxkd5vg86" path="res://Common/main_scene.gd" id="1_2jjeq"]
 [ext_resource type="PackedScene" uid="uid://dwno7j0gv1ra0" path="res://Common/debug_menu.tscn" id="2_0cuw1"]
+[ext_resource type="Theme" uid="uid://4f6534eagq0m" path="res://Resources/Main_theme.tres" id="2_viaen"]
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_2jjeq")
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_viaen")
 
 [node name="DebugMenu" parent="GUI" instance=ExtResource("2_0cuw1")]
 layout_mode = 1
