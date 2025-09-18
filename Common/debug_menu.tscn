@@ -11,53 +11,62 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_55nmg")
 
-[node name="DebugHud" type="VBoxContainer" parent="."]
-visible = false
+[node name="DebugHud" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 77.0
 grow_horizontal = 2
 
-[node name="LevelContainer" type="HBoxContainer" parent="DebugHud"]
-layout_mode = 2
-
-[node name="LevelLabel" type="Label" parent="DebugHud/LevelContainer"]
-layout_mode = 2
-text = "Current level:"
-
-[node name="LevelVar" type="Label" parent="DebugHud/LevelContainer"]
-layout_mode = 2
-text = "Current level"
-
-[node name="AudioContainer" type="HBoxContainer" parent="DebugHud"]
-layout_mode = 2
-
-[node name="AudioLabel" type="Label" parent="DebugHud/AudioContainer"]
-layout_mode = 2
-text = "Current audio:"
-
-[node name="AudioVar" type="Label" parent="DebugHud/AudioContainer"]
-layout_mode = 2
-text = "Current audio"
-
-[node name="FpsContainer" type="HBoxContainer" parent="DebugHud"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugHud"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="FpsLabel" type="Label" parent="DebugHud/FpsContainer"]
+[node name="LevelContainer" type="HBoxContainer" parent="DebugHud/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="DebugHud/VBoxContainer/LevelContainer"]
+layout_mode = 2
+text = "Current level:"
+
+[node name="LevelVar" type="Label" parent="DebugHud/VBoxContainer/LevelContainer"]
+layout_mode = 2
+text = "Current level"
+
+[node name="AudioContainer" type="HBoxContainer" parent="DebugHud/VBoxContainer"]
+layout_mode = 2
+
+[node name="AudioLabel" type="Label" parent="DebugHud/VBoxContainer/AudioContainer"]
+layout_mode = 2
+text = "Current audio:"
+
+[node name="AudioVar" type="Label" parent="DebugHud/VBoxContainer/AudioContainer"]
+layout_mode = 2
+text = "Current audio"
+
+[node name="FpsContainer" type="HBoxContainer" parent="DebugHud/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="FpsLabel" type="Label" parent="DebugHud/VBoxContainer/FpsContainer"]
 layout_mode = 2
 text = "Fps:"
 
-[node name="FpsVar" type="Label" parent="DebugHud/FpsContainer"]
+[node name="FpsVar" type="Label" parent="DebugHud/VBoxContainer/FpsContainer"]
 layout_mode = 2
 text = "Fps"
+
+[node name="Button" type="Button" parent="DebugHud"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+keep_pressed_outside = true
+text = "Open debug window"
 
 [node name="Window" type="Window" parent="."]
 title = "Debug window"
 initial_position = 1
 size = Vector2i(200, 150)
-visible = false
 wrap_controls = true
 popup_window = true
 sharp_corners = true
@@ -84,5 +93,6 @@ popup/item_0/text = "level select"
 popup/item_0/id = 0
 popup/item_0/separator = true
 
+[connection signal="pressed" from="DebugHud/Button" to="." method="_on_button_pressed"]
 [connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
 [connection signal="item_selected" from="Window/VBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]

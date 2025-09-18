@@ -4,11 +4,13 @@ extends Control
 @onready var levels_button = $Window/VBoxContainer/OptionButton
 @onready var debug_hud = $DebugHud
 
-@onready var debug_hud_fps = $DebugHud/FpsContainer/FpsVar
-@onready var debug_hud_level = $DebugHud/LevelContainer/LevelVar
-@onready var debug_hud_audio = $DebugHud/AudioContainer/AudioVar
+@onready var debug_hud_fps = $DebugHud/VBoxContainer/FpsContainer/FpsVar
+@onready var debug_hud_level = $DebugHud/VBoxContainer/LevelContainer/LevelVar
+@onready var debug_hud_audio = $DebugHud/VBoxContainer/AudioContainer/AudioVar
 
-var debug_show : bool
+var debug_hud_show : bool
+var debug_window_show : bool
+
 var level_selected
 var levels_list
 var levels_number
@@ -21,17 +23,20 @@ func _ready() -> void:
 
 func _input(event): #input handling
 	if event.is_action_pressed("Button_debug"):
-		if debug_show == true:
-			debug_show = false
+		if debug_hud_show == true:
+			debug_hud_show = false
 			print("Debug menu OFF")
 		else:
-			debug_show = true
+			debug_hud_show = true
 			print("Debug menu ON")
 
 
+func _on_button_pressed() -> void:
+	debug_window_show = true
+	print("debug menu ON")
 
 func _on_window_close_requested() -> void:
-	debug_show = false
+	debug_window_show = false
 	print("debug menu OFF")
 
 
@@ -44,11 +49,14 @@ func debug_handler():
 	debug_hud_level.text = str(level_selected)
 	
 	##handles showing and hiding debug ui
-	if debug_show:
+	if debug_hud_show:
 		debug_hud.show()
-		debug_window.show()
 	else:
 		debug_hud.hide()
+	
+	if debug_window_show:
+		debug_window.show()
+	else:
 		debug_window.hide()
 
 
