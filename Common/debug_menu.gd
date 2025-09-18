@@ -65,6 +65,12 @@ func debug_handler():
 #returns the number of levels in the levels directory and lists them
 func list_levels(): 
 	levels_list = ResourceLoader.list_directory("res://Levels/")
+	
+	####### remove files that are not scenes
+	for n in levels_list:
+		if not ".tscn" in levels_list:
+			levels_list.erase(n)
+	
 	levels_number = levels_list.size()
 	print("there are %s levels" % levels_number)
 	print(levels_list)
