@@ -1,22 +1,29 @@
 extends Node
 
-@onready var level_instance
+################## NODES #######################################
+######### NODES
 @onready var World = $World
 @onready var music_player = $AudioStreamPlayer
-
+######### HANDLERS
 @onready var options_saver: Node = $OptionsSaver
 @onready var game_saver: Node = $GameSaver
+###############################################################
+
+######### DECLARING VARIABLES #################################
+var level_instance
+###############################################################
 
 
 func _ready() -> void:
 	Global.main_scene = self
 
+
+####### LEVEL LOADING LOGIC ######################################
 func unload_level():
 	if (is_instance_valid(level_instance)):
 		level_instance.queue_free()
 	level_instance = null
 
- 
 func load_level(level_name : String):
 	unload_level()
 	var level_path := "res://Levels/%s" % level_name
@@ -25,8 +32,11 @@ func load_level(level_name : String):
 		level_instance = level_resource.instantiate()
 		World.add_child(level_instance)
 		Global.current_level = level_name
+##################################################################
 
+########## AUDIO HANDLE ##########################################
 func play_track(soundtrack):
 	print("i am now playing " + str(soundtrack))
 	music_player.stream = soundtrack
 	music_player.play()
+##################################################################

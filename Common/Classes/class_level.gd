@@ -5,9 +5,12 @@ extends Node
 @export var soundtrack : Resource
 
 func _ready() -> void:
+
+	######### MUSIC HANDLER ##################
 	if soundtrack:
 		load(soundtrack.get_path())
 		print(soundtrack.get_path())
 		Global.main_scene.play_track(soundtrack)
 	else:
 		Global.main_scene.play_track(null)
+	##########################################

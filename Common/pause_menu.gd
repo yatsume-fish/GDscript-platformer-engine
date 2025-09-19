@@ -1,5 +1,7 @@
 extends Control
 
+
+
 func resume():
 	get_tree().paused = false
 	hide()
@@ -23,6 +25,7 @@ func _input(event): #input handling
 		resume()
 	
 
+######### SIGNALS AND BUTTONS ###############################
 func _on_resume_pressed() -> void:
 	resume()
 
@@ -34,3 +37,4 @@ func _on_options_pressed() -> void:
 
 func _on_return_to_menu_pressed() -> void:
 	pass
+###########################################################
