@@ -1,0 +1,137 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs751o3ps0n22"]
+
+[ext_resource type="Script" uid="uid://bi3avt853v5df" path="res://Common/options_menu.gd" id="1_qq7ch"]
+
+[node name="OptionsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qq7ch")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -508.0
+offset_top = -286.0
+offset_right = 508.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="OptionsLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="Tabs" type="TabContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 1
+
+[node name="General" type="PanelContainer" parent="Panel/VBox/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Audio" type="PanelContainer" parent="Panel/VBox/Tabs"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBox" type="VBoxContainer" parent="Panel/VBox/Tabs/Audio"]
+layout_mode = 2
+
+[node name="MasterContainer" type="HBoxContainer" parent="Panel/VBox/Tabs/Audio/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/Tabs/Audio/VBox/MasterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="Panel/VBox/Tabs/Audio/VBox/MasterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="CheckButton" type="CheckButton" parent="Panel/VBox/Tabs/Audio/VBox/MasterContainer"]
+layout_mode = 2
+
+[node name="MusicContainer" type="HBoxContainer" parent="Panel/VBox/Tabs/Audio/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/Tabs/Audio/VBox/MusicContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/VBox/Tabs/Audio/VBox/MusicContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="CheckButton" type="CheckButton" parent="Panel/VBox/Tabs/Audio/VBox/MusicContainer"]
+layout_mode = 2
+
+[node name="SFXContainer" type="HBoxContainer" parent="Panel/VBox/Tabs/Audio/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/Tabs/Audio/VBox/SFXContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="Panel/VBox/Tabs/Audio/VBox/SFXContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="CheckButton" type="CheckButton" parent="Panel/VBox/Tabs/Audio/VBox/SFXContainer"]
+layout_mode = 2
+
+[node name="Video" type="PanelContainer" parent="Panel/VBox/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Controls" type="PanelContainer" parent="Panel/VBox/Tabs"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Save" type="Button" parent="Panel/VBox/HBoxContainer"]
+layout_mode = 2
+text = "Save
+"
+
+[node name="Return" type="Button" parent="Panel/VBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Return"
+
+[connection signal="value_changed" from="Panel/VBox/Tabs/Audio/VBox/MasterContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBox/Tabs/Audio/VBox/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBox/Tabs/Audio/VBox/SFXContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Panel/VBox/HBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Panel/VBox/HBoxContainer/Return" to="." method="_on_return_pressed"]

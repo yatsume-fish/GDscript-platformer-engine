@@ -1,13 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvpjl7ggc87pg"]
+[gd_scene load_steps=4 format=3 uid="uid://d1vk5adjq7ca6"]
 
-[ext_resource type="Script" uid="uid://df4cw4tcnk7fj" path="res://Levels/lvl_debug_1.gd" id="1_0cyly"]
+[ext_resource type="Script" uid="uid://w5snrv7i35at" path="res://Common/Classes/class_level.gd" id="1_amevh"]
 [ext_resource type="AudioStream" uid="uid://b6b08ykoc007x" path="res://Audio/Music/ost_cave.ogg" id="2_koing"]
 [ext_resource type="Texture2D" uid="uid://din41gtjqtm3v" path="res://Assets/sphere_water.png" id="3_pgtig"]
 
-[node name="lvl_debug_1" type="Node2D"]
-script = ExtResource("1_0cyly")
+[node name="lvl_debug_1" type="Node"]
+script = ExtResource("1_amevh")
+level_name = "Debug level 1"
 soundtrack = ExtResource("2_koing")
+metadata/_custom_type_script = "uid://w5snrv7i35at"
 
 [node name="SphereWater" type="Sprite2D" parent="."]
-position = Vector2(530, 315)
+position = Vector2(571, 191)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater2" type="Sprite2D" parent="."]
+position = Vector2(644, 147)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater3" type="Sprite2D" parent="."]
+position = Vector2(723, 94)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater4" type="Sprite2D" parent="."]
+position = Vector2(730, 178)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater5" type="Sprite2D" parent="."]
+position = Vector2(729, 274)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater6" type="Sprite2D" parent="."]
+position = Vector2(730, 368)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater7" type="Sprite2D" parent="."]
+position = Vector2(732, 445)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater8" type="Sprite2D" parent="."]
+position = Vector2(730, 523)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater9" type="Sprite2D" parent="."]
+position = Vector2(642, 532)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater10" type="Sprite2D" parent="."]
+position = Vector2(561, 530)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater11" type="Sprite2D" parent="."]
+position = Vector2(815, 536)
+texture = ExtResource("3_pgtig")
+
+[node name="SphereWater12" type="Sprite2D" parent="."]
+position = Vector2(894, 539)
 texture = ExtResource("3_pgtig")

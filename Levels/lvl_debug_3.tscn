@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://co7vpqgya45c0"]
+
+[ext_resource type="Script" uid="uid://w5snrv7i35at" path="res://Common/Classes/class_level.gd" id="1_qyi6c"]
+[ext_resource type="Texture2D" uid="uid://b1aqwxih6ay51" path="res://Assets/sphere_electric.png" id="3_rsk6n"]
+[ext_resource type="Texture2D" uid="uid://dix4gqu8sbqi8" path="res://Assets/sphere_fire.png" id="4_glgdp"]
+[ext_resource type="Texture2D" uid="uid://dcghdllkk5fhl" path="res://Assets/sphere_plant.png" id="5_mftny"]
+[ext_resource type="Texture2D" uid="uid://din41gtjqtm3v" path="res://Assets/sphere_water.png" id="6_16jv0"]
+[ext_resource type="Texture2D" uid="uid://c8w6wct1ak2a3" path="res://icon.png" id="6_qyi6c"]
+
+[node name="lvl_debug_1" type="Node"]
+script = ExtResource("1_qyi6c")
+level_name = "Debug level"
+metadata/_custom_type_script = "uid://w5snrv7i35at"
+
+[node name="SphereElectric" type="Sprite2D" parent="."]
+position = Vector2(449, 207)
+texture = ExtResource("3_rsk6n")
+
+[node name="SphereFire" type="Sprite2D" parent="."]
+position = Vector2(651, 203)
+texture = ExtResource("4_glgdp")
+
+[node name="SpherePlant" type="Sprite2D" parent="."]
+position = Vector2(667, 424)
+texture = ExtResource("5_mftny")
+
+[node name="SphereWater" type="Sprite2D" parent="."]
+position = Vector2(453, 422)
+texture = ExtResource("6_16jv0")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(556, 320)
+texture = ExtResource("6_qyi6c")

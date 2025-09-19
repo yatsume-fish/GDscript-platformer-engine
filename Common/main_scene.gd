@@ -4,6 +4,10 @@ extends Node
 @onready var World = $World
 @onready var music_player = $AudioStreamPlayer
 
+@onready var options_saver: Node = $OptionsSaver
+@onready var game_saver: Node = $GameSaver
+
+
 func _ready() -> void:
 	Global.main_scene = self
 
@@ -20,6 +24,7 @@ func load_level(level_name : String):
 	if (level_resource):
 		level_instance = level_resource.instantiate()
 		World.add_child(level_instance)
+		Global.current_level = level_name
 
 func play_track(soundtrack):
 	print("i am now playing " + str(soundtrack))

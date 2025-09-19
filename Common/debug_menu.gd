@@ -46,7 +46,7 @@ func debug_handler():
 	var fps = Engine.get_frames_per_second()
 	
 	debug_hud_fps.text = str(fps)
-	debug_hud_level.text = str(level_selected)
+	debug_hud_level.text = str(Global.current_level)
 	debug_hud_audio.text = str(Global.main_scene.music_player.get_stream())
 	
 	####### handles showing and hiding debug ui
@@ -66,13 +66,14 @@ func debug_handler():
 #returns the number of levels in the levels directory and lists them
 func list_levels(): 
 	levels_list = ResourceLoader.list_directory("res://Levels/")
+	levels_number = levels_list.size()
 	
 	####### remove files that are not scenes
-	for n in levels_list:
-		if not ".tscn" in levels_list:
-			levels_list.erase(n)
 	
-	levels_number = levels_list.size()
+	for n in levels_number:
+		if not ".tscn" in levels_list[n]:
+			levels_list.remove_at(n)
+	
 	print("there are %s levels" % levels_number)
 	print(levels_list)
 
